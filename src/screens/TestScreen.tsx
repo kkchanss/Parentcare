@@ -11,19 +11,18 @@ import {
 import { COLORS, SIZES, FONTS } from '../constants';
 import { Button } from '../components/common/Button';
 import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+
+const api = axios.create({
+  baseURL: 'https://date.nager.at/api/v3',
+  timeout: 8000,
+});
 
 // 공휴일 API 호출 함수 (한국 2025년)
 const fetchKoreanHolidays = async () => {
-  const year = 2025; // 필요하면 new Date().getFullYear() 로 바꾸기
-  const url = `https://date.nager.at/api/v3/PublicHolidays/${year}/KR`;
-  const res = await fetch(url);
-  if (!res.ok) throw new Error('Network response was not ok');
-  return (await res.json()) as Array<{
-    date: string;
-    localName: string;
-    name: string;
-    types?: string[];
-  }>;
+  const year = new Date().getFullYear();
+  const { data } = await api.get(`/PublicHolidays/${year}/KR`);
+  return data as Array<{ date: string; localName: string; name: string }>;
 };
 
 export const TestScreen: React.FC = () => {
