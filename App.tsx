@@ -6,7 +6,7 @@ import { AppNavigator } from './src/navigation/AppNavigator';
 export default function App() {
   return (
     <>
-      <View style={{ padding: 20, backgroundColor: '#f0f0f0' }}>
+      <View style={{ padding: 30, backgroundColor: '#f0f0f0' }}>
       </View>
       <AppNavigator />
       <StatusBar style="auto" />

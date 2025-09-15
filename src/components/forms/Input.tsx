@@ -1,4 +1,6 @@
 // 기본 텍스트 입력 컴포넌트
+
+// 이민주 커밋 테스트
 import React, { useState } from 'react';
 import { View, TextInput, Text, StyleSheet, TextInputProps } from 'react-native';
 import { COLORS, SIZES, FONTS } from '../../constants';
