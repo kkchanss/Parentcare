@@ -1,8 +1,8 @@
 // 앱 상수 정의
 export const COLORS = {
-  primary: '#007AFF',
+  primary: '#75D89A',
   secondary: '#5856D6',
-  success: '#34C759',
+  success: '#007AFF',
   warning: '#FF9500',
   error: '#FF3B30',
   background: '#F2F2F7',
