@@ -14,7 +14,7 @@ export const TestScreen: React.FC = () => {
         <View style={styles.buttonContainer}>
           <Button
             title="홈으로 돌아가기"
-            variant="primary"
+            variant="primaryColor"
             size="large"
             onPress={() => console.log('홈으로 돌아가기 버튼 클릭')}
           />
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 18,
     fontFamily: FONTS.regular,
-    color: COLORS.textSecondary,
+    color: COLORS.textServe1,
     marginBottom: SIZES.xxl,
   },
   buttonContainer: {
