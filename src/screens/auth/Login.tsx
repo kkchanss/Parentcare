@@ -62,7 +62,33 @@ export const Login: React.FC = () => {
                     <CustomCheck />
                     <CustomText style={[styles.outerText, styles.check]}>로그인 상태 유지</CustomText>
                 </View>
-
+                <View style={{ width: '100%' }}>
+                    <Pressable
+                        style={{
+                            backgroundColor: COLORS.primary,
+                            borderRadius: 50,
+                            paddingVertical: SIZES.pd20,
+                            alignItems: 'center',
+                            marginBottom: SIZES.mg24,
+                            height: 60,
+                        }}
+                    >
+                        <CustomText style={{ color: COLORS.background, fontSize: SIZES.ft16 }} ftW='SemiBold'>로그인</CustomText>
+                    </Pressable>
+                </View>
+                <View style={styles.linkContainer}>
+                    <Pressable>
+                        <CustomText style={styles.linkText}>이메일 찾기</CustomText>
+                    </Pressable>
+                    <CustomText style={styles.divider}>|</CustomText>
+                    <Pressable>
+                        <CustomText style={styles.linkText}>비밀번호 찾기</CustomText>
+                    </Pressable>
+                    <CustomText style={styles.divider}>|</CustomText>
+                    <Pressable>
+                        <CustomText style={styles.linkText}>회원가입</CustomText>
+                    </Pressable>
+                </View>
             </View>
         </SafeAreaView>
     );
@@ -143,7 +169,25 @@ const getStyles = (scale: (size: number) => number) => StyleSheet.create({
         letterSpacing: 0.25,
         lineHeight: SIZES.ft14 * 1.45,
     },
-    check: { 
+    check: {
         marginLeft: SIZES.mg10
     },
+    linkContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    linkText: {
+        fontSize: SIZES.ft14,
+        color: COLORS.text33,
+        letterSpacing: 0.25,
+        lineHeight: SIZES.ft14 * 1.45,
+        paddingHorizontal: SIZES.pd20,
+    },
+    divider: {
+        fontSize: SIZES.ft14,
+        color: COLORS.greyD9,
+        letterSpacing: 0.25,
+        lineHeight: SIZES.ft14 * 1.45,
+    },  
 });

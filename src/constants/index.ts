@@ -46,6 +46,7 @@ export const SIZES = {
   mg5: 5,
   mg10: 10,
   mg20: 20,
+  mg24: 24,
   mg26: 26,
   mg30: 30,
   mg40: 40,
