@@ -44,6 +44,9 @@ export const Login: React.FC = () => {
     const { scale } = useResponsive();
     const styles = getStyles(scale);
 
+    const [checked, setChecked] = useState(false);
+    const toggle = () => setChecked(prev => !prev);
+
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar style="dark" backgroundColor={COLORS.background} />
@@ -59,8 +62,10 @@ export const Login: React.FC = () => {
                     </View>
                 </View>
                 <View style={styles.box3}>
-                    <CustomCheck />
-                    <CustomText style={[styles.outerText, styles.check]}>로그인 상태 유지</CustomText>
+                    <CustomCheck checked={checked} onChange={setChecked} />
+                    <Pressable onPress={toggle} hitSlop={8}>
+                        <CustomText style={[styles.outerText, styles.check]}>로그인 상태 유지</CustomText>
+                    </Pressable>
                 </View>
                 <View style={{ width: '100%' }}>
                     <Pressable
@@ -189,5 +194,5 @@ const getStyles = (scale: (size: number) => number) => StyleSheet.create({
         color: COLORS.greyD9,
         letterSpacing: 0.25,
         lineHeight: SIZES.ft14 * 1.45,
-    },  
+    },
 });
