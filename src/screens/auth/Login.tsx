@@ -69,15 +69,7 @@ export const Login: React.FC = () => {
                 </View>
                 <View style={{ width: '100%' }}>
                     <Pressable
-                        style={{
-                            backgroundColor: COLORS.primary,
-                            borderRadius: 50,
-                            paddingVertical: SIZES.pd20,
-                            alignItems: 'center',
-                            marginBottom: SIZES.mg24,
-                            height: 60,
-                        }}
-                    >
+                        style={styles.loginBtn}>
                         <CustomText style={{ color: COLORS.background, fontSize: SIZES.ft16 }} ftW='SemiBold'>로그인</CustomText>
                     </Pressable>
                 </View>
@@ -187,12 +179,21 @@ const getStyles = (scale: (size: number) => number) => StyleSheet.create({
         color: COLORS.text33,
         letterSpacing: 0.25,
         lineHeight: SIZES.ft14 * 1.45,
-        paddingHorizontal: SIZES.pd20,
     },
     divider: {
+        paddingHorizontal: SIZES.pd20,
         fontSize: SIZES.ft14,
         color: COLORS.greyD9,
         letterSpacing: 0.25,
         lineHeight: SIZES.ft14 * 1.45,
     },
+    loginBtn: {
+        backgroundColor: COLORS.primary,
+        paddingVertical: SIZES.pd20,
+        marginBottom: SIZES.mg24,
+        height: 60,
+        borderRadius: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+    }
 });
