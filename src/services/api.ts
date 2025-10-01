@@ -1,53 +1,28 @@
-// API 서비스
+// 간단한 axios API 서비스
+import axios from 'axios';
+
 const BASE_URL = 'https://api.example.com';
 
-export interface ApiConfig {
-  baseURL: string;
-  timeout: number;
-  headers: Record<string, string>;
-}
-
-const defaultConfig: ApiConfig = {
+// axios 인스턴스 생성
+const apiClient = axios.create({
   baseURL: BASE_URL,
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
   },
+});
+
+// 공휴일 API 인스턴스 (TestScreen에서 사용)
+export const holidaysApi = axios.create({
+  baseURL: 'https://date.nager.at/api/v3',
+  timeout: 8000,
+});
+
+// 공휴일 API 함수 (TestScreen에서 사용)
+export const fetchKoreanHolidays = async () => {
+  const year = new Date().getFullYear();
+  const { data } = await holidaysApi.get(`/PublicHolidays/${year}/KR`);
+  return data as Array<{ date: string; localName: string; name: string }>;
 };
 
-export class ApiService {
-  private config: ApiConfig;
-
-  constructor(config: Partial<ApiConfig> = {}) {
-    this.config = { ...defaultConfig, ...config };
-  }
-
-  async get<T>(endpoint: string): Promise<T> {
-    const response = await fetch(`${this.config.baseURL}${endpoint}`, {
-      method: 'GET',
-      headers: this.config.headers,
-    });
-    
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    
-    return response.json();
-  }
-
-  async post<T>(endpoint: string, data: any): Promise<T> {
-    const response = await fetch(`${this.config.baseURL}${endpoint}`, {
-      method: 'POST',
-      headers: this.config.headers,
-      body: JSON.stringify(data),
-    });
-    
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    
-    return response.json();
-  }
-}
-
-export const apiService = new ApiService();
+export default apiClient;

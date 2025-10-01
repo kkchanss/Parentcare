@@ -1,5 +1,6 @@
-// 커스텀 훅 예시
+// 간단한 axios 커스텀 훅
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 export const useApi = <T>(url: string) => {
   const [data, setData] = useState<T | null>(null);
@@ -10,12 +11,8 @@ export const useApi = <T>(url: string) => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const result = await response.json();
-        setData(result);
+        const response = await axios.get(url);
+        setData(response.data);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred');
       } finally {

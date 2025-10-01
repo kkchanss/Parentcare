@@ -11,19 +11,7 @@ import {
 import { COLORS, SIZES, FONTS } from '../constants';
 import { Button } from '../components/common/Button';
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
-
-const api = axios.create({
-  baseURL: 'https://date.nager.at/api/v3',
-  timeout: 8000,
-});
-
-// 공휴일 API 호출 함수 (한국 2025년)
-const fetchKoreanHolidays = async () => {
-  const year = new Date().getFullYear();
-  const { data } = await api.get(`/PublicHolidays/${year}/KR`);
-  return data as Array<{ date: string; localName: string; name: string }>;
-};
+import { fetchKoreanHolidays } from '../services/api';
 
 export const TestScreen: React.FC = () => {
   const { data, isLoading, isError, refetch, isFetching } = useQuery({
@@ -42,7 +30,7 @@ export const TestScreen: React.FC = () => {
         {isLoading ? (
           <ActivityIndicator size="large" style={{ marginVertical: SIZES.xl }} />
         ) : isError ? (
-          <Text style={styles.errorMsg}>불러오기 실패 😵 다시 시도해보세요.</Text>
+          <Text style={styles.errorMsg}>불러오기 실패</Text>
         ) : (
           <FlatList
             style={{ alignSelf: 'stretch' }}

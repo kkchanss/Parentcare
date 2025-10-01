@@ -5,8 +5,10 @@ export const COLORS = {
   success: '#34C759',
   warning: '#FF9500',
   error: '#FF3B30',
+  danger: '#FF3B30', // error와 동일한 값
   background: '#F2F2F7',
   surface: '#FFFFFF',
+  card: '#FFFFFF', // surface와 동일한 값
   text: '#000000',
   textSecondary: '#8E8E93',
 };
@@ -23,5 +25,6 @@ export const SIZES = {
 export const FONTS = {
   regular: 'System',
   medium: 'System',
+  semibold: 'System', // medium과 동일한 값
   bold: 'System',
 };

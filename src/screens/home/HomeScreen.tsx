@@ -28,6 +28,14 @@ export const HomeScreen: React.FC = () => {
             onPress={() => navigation.navigate('Test' as never)}
             style={{ marginTop: SIZES.md }}
           />
+
+          <Button
+            title="테스트 화면2으로 이동"
+            variant="secondary"
+            size="large"
+            onPress={() => navigation.navigate('Test2' as never)}
+            style={{ marginTop: SIZES.md }}
+          />
         </View>
       </View>
     </SafeAreaView>
