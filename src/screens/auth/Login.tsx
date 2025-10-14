@@ -10,6 +10,9 @@ import { CustomText } from '@components/common/CustomText';
 import { CustomTextInput } from '@components/common/CustomTextInput';
 import { CustomCheck } from '@components/common/CustomCheck';
 
+import { useNavigation } from '@react-navigation/native';
+
+
 // Password Input 컴포넌트
 const PwInput: React.FC<any> = (props) => {
     const { scale } = useResponsive();
@@ -47,6 +50,9 @@ export const Login: React.FC = () => {
     const [checked, setChecked] = useState(false);
     const toggle = () => setChecked(prev => !prev);
 
+    const navigation = useNavigation();
+
+
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar style="dark" backgroundColor={COLORS.background} />
@@ -69,7 +75,8 @@ export const Login: React.FC = () => {
                 </View>
                 <View style={{ width: '100%' }}>
                     <Pressable
-                        style={styles.loginBtn}>
+                        style={styles.loginBtn}
+                        onPress={() => navigation.navigate('Main' as never)}>
                         <CustomText style={{ color: COLORS.background, fontSize: SIZES.ft16 }} ftW='SemiBold'>로그인</CustomText>
                     </Pressable>
                 </View>

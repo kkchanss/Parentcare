@@ -7,6 +7,8 @@ import { ActivityIndicator, View } from 'react-native';
 import SplashScreenComponent from './src/screens/SplashScreen';
 import { Login } from './src/screens/auth/Login';
 import { HomeScreen } from './src/screens/home/HomeScreen';
+import { MainScreen } from './src/screens/publishing/MainScreen';
+import { WebViewScreen } from './src/screens/WebViewScreen';
 import { usePretendard } from './src/hooks/useFonts';
 
 const Stack = createNativeStackNavigator();
@@ -36,6 +38,8 @@ export default function App() {
         >
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Main" component={MainScreen} />
+          <Stack.Screen name="WebView" component={WebViewScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

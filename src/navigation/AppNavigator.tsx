@@ -4,6 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { HomeScreen } from '../screens/home/HomeScreen';
 import { TestScreen } from '../screens/TestScreen';
+import { MainScreen } from '../screens/publishing/mainScreen';
+import { Login } from '../screens/auth/Login';
 
 const Stack = createStackNavigator();
 
@@ -28,9 +30,19 @@ export const AppNavigator: React.FC = () => {
           options={{ title: 'ParentCare' }}
         />
         <Stack.Screen 
+          name="Login" 
+          component={Login}
+          options={{ title: '로그인' }}
+        />
+        <Stack.Screen 
           name="Test" 
           component={TestScreen}
           options={{ title: 'Test Screen' }}
+        />
+        <Stack.Screen 
+          name="Main" 
+          component={MainScreen} 
+          options={{ title: 'Main Screen' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
