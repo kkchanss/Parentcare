@@ -10,6 +10,9 @@ import { CustomText } from '@components/common/CustomText';
 import { CustomTextInput } from '@components/common/CustomTextInput';
 import { CustomCheck } from '@components/common/CustomCheck';
 
+import { useLogin } from '@hooks/userLogin';
+
+
 // Password Input 컴포넌트
 const PwInput: React.FC<any> = (props) => {
     const { scale } = useResponsive();
@@ -47,6 +50,13 @@ export const Login: React.FC = () => {
     const [checked, setChecked] = useState(false);
     const toggle = () => setChecked(prev => !prev);
 
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+
+    const { login, loading, error } = useLogin();
+
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar style="dark" backgroundColor={COLORS.background} />
@@ -57,8 +67,13 @@ export const Login: React.FC = () => {
                 </View>
                 <View style={styles.box2}>
                     <View style={{ width: '100%' }}>
-                        <CustomTextInput style={[styles.box2Text, styles.emailText]} placeholder="이메일 또는 휴대폰 번호" />
-                        <PwInput />
+                        <CustomTextInput
+                            style={[styles.box2Text, styles.emailText]} placeholder="이메일 또는 휴대폰 번호"
+                            value={email}
+                            onChangeText={setEmail} />
+                        <PwInput 
+                            value={password}
+                            onChangeText={setPassword} />
                     </View>
                 </View>
                 <View style={styles.box3}>
@@ -69,7 +84,14 @@ export const Login: React.FC = () => {
                 </View>
                 <View style={{ width: '100%' }}>
                     <Pressable
-                        style={styles.loginBtn}>
+                        style={styles.loginBtn}
+                        onPress={() => {
+                            login(email, password).then(data => {
+                                console.log('Login successful:', data);
+                            }).catch(err => {
+                                console.error('Login error:', err);
+                            }); 
+                        }}>
                         <CustomText style={{ color: COLORS.background, fontSize: SIZES.ft16 }} ftW='SemiBold'>로그인</CustomText>
                     </Pressable>
                 </View>
