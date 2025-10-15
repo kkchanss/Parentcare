@@ -10,7 +10,11 @@ import { CustomText } from '@components/common/CustomText';
 import { CustomTextInput } from '@components/common/CustomTextInput';
 import { CustomCheck } from '@components/common/CustomCheck';
 
+<<<<<<< HEAD
 import { useLogin } from '@hooks/userLogin';
+=======
+import { useNavigation } from '@react-navigation/native';
+>>>>>>> 63acf3bfd4566e88b922bffe32b30aa789f58fc0
 
 
 // Password Input 컴포넌트
@@ -50,6 +54,7 @@ export const Login: React.FC = () => {
     const [checked, setChecked] = useState(false);
     const toggle = () => setChecked(prev => !prev);
 
+<<<<<<< HEAD
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -57,6 +62,11 @@ export const Login: React.FC = () => {
 
     const { login, loading, error } = useLogin();
 
+=======
+    const navigation = useNavigation();
+
+
+>>>>>>> 63acf3bfd4566e88b922bffe32b30aa789f58fc0
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar style="dark" backgroundColor={COLORS.background} />
@@ -85,6 +95,7 @@ export const Login: React.FC = () => {
                 <View style={{ width: '100%' }}>
                     <Pressable
                         style={styles.loginBtn}
+<<<<<<< HEAD
                         onPress={() => {
                             login(email, password).then(data => {
                                 console.log('Login successful:', data);
@@ -92,6 +103,9 @@ export const Login: React.FC = () => {
                                 console.error('Login error:', err);
                             }); 
                         }}>
+=======
+                        onPress={() => navigation.navigate('Main' as never)}>
+>>>>>>> 63acf3bfd4566e88b922bffe32b30aa789f58fc0
                         <CustomText style={{ color: COLORS.background, fontSize: SIZES.ft16 }} ftW='SemiBold'>로그인</CustomText>
                     </Pressable>
                 </View>
