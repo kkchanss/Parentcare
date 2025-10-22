@@ -10,6 +10,8 @@ import { HomeScreen } from './src/screens/home/HomeScreen';
 import { MainScreen } from './src/screens/publishing/MainScreen';
 import { WebViewScreen } from './src/screens/WebViewScreen';
 import { usePretendard } from './src/hooks/useFonts';
+import JoinPage from './src/screens/auth/Join';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -40,6 +42,7 @@ export default function App() {
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Main" component={MainScreen} />
           <Stack.Screen name="WebView" component={WebViewScreen} />
+          <Stack.Screen name="JoinPage" component={JoinPage} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

@@ -6,6 +6,8 @@ import { HomeScreen } from '../screens/home/HomeScreen';
 import { TestScreen } from '../screens/TestScreen';
 import { MainScreen } from '../screens/publishing/mainScreen';
 import { Login } from '../screens/auth/Login';
+import  JoinPage  from '../screens/auth/Join';
+
 
 const Stack = createStackNavigator();
 
@@ -33,6 +35,11 @@ export const AppNavigator: React.FC = () => {
           name="Login" 
           component={Login}
           options={{ title: '로그인' }}
+        />
+        <Stack.Screen 
+          name="Join" 
+          component={JoinPage}
+          options={{ title: '회원가입' }}
         />
         <Stack.Screen 
           name="Test" 

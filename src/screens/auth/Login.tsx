@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { View, StyleSheet, Image, Pressable } from 'react-native';
+import { View, StyleSheet, Image, Pressable, Alert } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
 import { COLORS, SIZES } from '@constants/index';
@@ -12,7 +12,6 @@ import { CustomCheck } from '@components/common/CustomCheck';
 
 import { useLogin } from '@hooks/userLogin';
 import { useNavigation } from '@react-navigation/native';
-
 
 
 // Password Input 컴포넌트
@@ -92,11 +91,10 @@ export const Login: React.FC = () => {
                             login(email, password).then(data => {
                                 console.log('Login successful:', data);
                             }).catch(err => {
-                                console.error('Login error:', err);
+                                Alert.alert(err.message);
                             }); 
                         }}>
 
-                        {/*<!--onPress={() => navigation.navigate('Main' as never)}>-->*/}
 
                         <CustomText style={{ color: COLORS.background, fontSize: SIZES.ft16 }} ftW='SemiBold'>로그인</CustomText>
                     </Pressable>
@@ -110,7 +108,7 @@ export const Login: React.FC = () => {
                         <CustomText style={styles.linkText}>비밀번호 찾기</CustomText>
                     </Pressable>
                     <CustomText style={styles.divider}>|</CustomText>
-                    <Pressable>
+                    <Pressable onPress={() => navigation.navigate('JoinPage' as never)}>
                         <CustomText style={styles.linkText}>회원가입</CustomText>
                     </Pressable>
                 </View>
