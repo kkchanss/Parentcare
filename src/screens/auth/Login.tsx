@@ -111,6 +111,12 @@ export const Login: React.FC = () => {
                     <Pressable onPress={() => navigation.navigate('JoinPage' as never)}>
                         <CustomText style={styles.linkText}>회원가입</CustomText>
                     </Pressable>
+                    <Pressable onPress={() => navigation.navigate('QRScan' as never)}>
+                        <CustomText style={styles.linkText}>QR 스캔</CustomText>
+                    </Pressable>
+                    <Pressable onPress={() => navigation.navigate('QRGenerator' as never)}>
+                        <CustomText style={styles.linkText}>QR 생성</CustomText>
+                    </Pressable>
                 </View>
             </View>
         </SafeAreaView>

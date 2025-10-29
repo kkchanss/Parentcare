@@ -11,6 +11,8 @@ import { MainScreen } from './src/screens/publishing/MainScreen';
 import { WebViewScreen } from './src/screens/WebViewScreen';
 import { usePretendard } from './src/hooks/useFonts';
 import JoinPage from './src/screens/auth/Join';
+import QRScan from './src/screens/qr/QRScan';
+import QRGenerator from './src/screens/qr/QRGenerator';
 
 
 const Stack = createNativeStackNavigator();
@@ -43,6 +45,8 @@ export default function App() {
           <Stack.Screen name="Main" component={MainScreen} />
           <Stack.Screen name="WebView" component={WebViewScreen} />
           <Stack.Screen name="JoinPage" component={JoinPage} />
+          <Stack.Screen name="QRScan" component={QRScan} />
+          <Stack.Screen name="QRGenerator" component={QRGenerator} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
